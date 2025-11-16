@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Dinesh Karthik S - Java Full Stack Developer Portfolio. Information Science and Engineering graduate passionate about full stack development."
+    />
+    <meta
+      name="keywords"
+      content="Java Full Stack Developer, Web Developer, Portfolio, Dinesh Karthik S"
+    />
+    <meta name="author" content="Dinesh Karthik S" />
+    <title>Dinesh Karthik S — Portfolio</title>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+
+    <!-- Google Fonts - Poppins -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+          <div class="nav-brand">
+            <a href="#home" aria-label="Home">DK</a>
+          </div>
+          <ul class="nav-menu" id="nav-menu">
+            <li>
+              <a href="#home" class="nav-link"
+                ><i class="fas fa-home" aria-hidden="true"></i>
+                <span>Home</span></a
+              >
+            </li>
+            <li>
+              <a href="#about" class="nav-link"
+                ><i class="fas fa-user" aria-hidden="true"></i>
+                <span>About</span></a
+              >
+            </li>
+            <li>
+              <a href="#education" class="nav-link"
+                ><i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span>Education</span></a
+              >
+            </li>
+            <li>
+              <a href="#skills" class="nav-link"
+                ><i class="fas fa-code" aria-hidden="true"></i>
+                <span>Skills</span></a
+              >
+            </li>
+            <li>
+              <a href="#projects" class="nav-link"
+                ><i class="fas fa-briefcase" aria-hidden="true"></i>
+                <span>Projects</span></a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="nav-link"
+                ><i class="fas fa-envelope" aria-hidden="true"></i>
+                <span>Contact</span></a
+              >
+            </li>
+          </ul>
+          <button
+            class="hamburger"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-avatar">
+              <svg
+                width="200"
+                height="200"
+                viewBox="0 0 200 200"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="100" cy="100" r="100" fill="url(#gradient)" />
+                <circle cx="100" cy="85" r="35" fill="#1a1f2e" />
+                <path
+                  d="M 40 140 Q 100 110 160 140 L 160 180 Q 100 170 40 180 Z"
+                  fill="#1a1f2e"
+                />
+                <defs>
+                  <linearGradient
+                    id="gradient"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="100%"
+                  >
+                    <stop
+                      offset="0%"
+                      style="stop-color: #00d4ff; stop-opacity: 0.3"
+                    />
+                    <stop
+                      offset="100%"
+                      style="stop-color: #0099cc; stop-opacity: 0.1"
+                    />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+            <h1 class="hero-name">Dinesh Karthik S</h1>
+            <p class="hero-title">Java Full Stack Developer</p>
+            <div class="hero-buttons">
+              <a href="#contact" class="btn btn-primary">Get In Touch</a>
+              <a href="#projects" class="btn btn-secondary">View Projects</a>
+            </div>
+          </div>
+        </div>
+        <div class="scroll-indicator">
+          <span></span>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <p class="about-text">
+              I am an Information Science and Engineering graduate, currently
+              pursuing Java Full Stack Development at Tap Academy. I have a
+              strong foundation in programming, problem-solving, and web
+              technologies. I am passionate about full stack development and
+              eager to apply my knowledge in real-world projects while
+              continuously learning modern technologies.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="education">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="education-grid">
+            <div class="education-item">
+              <div class="education-content">
+                <h3>B.E. Information Science and Engineering</h3>
+                <p class="education-institute">
+                  Bannari Amman Institute of Technology
+                </p>
+                <p class="education-details">(2021–2025), CGPA: 7.38</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="education-content">
+                <h3>Higher Secondary</h3>
+                <p class="education-institute">
+                  Bhagavan Higher Secondary School
+                </p>
+                <p class="education-details">(2019–2021), 80.88%</p>
+              </div>
+            </div>
+            <div class="education-item">
+              <div class="education-content">
+                <h3>Secondary</h3>
+                <p class="education-institute">
+                  Mount Saint Joseph Matric Hr. Sec. School
+                </p>
+                <p class="education-details">(2007–2019), 74.6%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <div class="skills-container">
+            <div class="skills-category">
+              <h3>Technical Skills</h3>
+              <div class="skills-icon-grid">
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fab fa-java" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">Core Java</span>
+                </div>
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fab fa-html5" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">HTML</span>
+                </div>
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">Java Collections</span>
+                </div>
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fas fa-database" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">MySQL</span>
+                </div>
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fas fa-code" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">VS Code</span>
+                </div>
+                <div class="skill-icon-item">
+                  <div class="skill-icon">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i>
+                  </div>
+                  <span class="skill-label">Eclipse</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="projects">
+        <div class="container">
+          <h2 class="section-title">Projects</h2>
+          <div class="project-card">
+            <h3>Drowsiness Detection Using OpenCV</h3>
+            <ul class="project-list">
+              <li>
+                Built a real-time drowsiness detection system using Python,
+                OpenCV, and Pygame.
+              </li>
+              <li>
+                Detected eye movement patterns and triggered alerts on fatigue.
+              </li>
+              <li>Aimed to improve driver safety and prevent accidents.</li>
+            </ul>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">OpenCV</span>
+              <span class="tech-badge">Pygame</span>
+              <span class="tech-badge">Computer Vision</span>
+            </div>
+            <a href="#" class="btn btn-primary project-btn">View Project</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2 class="section-title">Contact</h2>
+          <p class="contact-intro">
+            Prefer to contact via form — I respond by email.
+          </p>
+
+          <!-- 
+                    EMAILJS SETUP INSTRUCTIONS:
+                    
+                    1. Sign up at https://www.emailjs.com/ and create an account
+                    2. Go to Email Services and add your email service (Gmail, Outlook, etc.)
+                    3. Go to Email Templates and create a new template
+                       - Set the recipient email in the template settings (this keeps your email private!)
+                       - Use {{from_name}}, {{from_email}}, and {{message}} as template variables
+                    4. Go to Integration and copy your:
+                       - Service ID
+                       - Template ID
+                       - Public Key (also called User ID)
+                    5. Replace the placeholder values below in script.js:
+                       - SERVICE_ID: Replace 'YOUR_SERVICE_ID' with your actual Service ID
+                       - TEMPLATE_ID: Replace 'YOUR_TEMPLATE_ID' with your actual Template ID
+                       - PUBLIC_KEY: Replace 'YOUR_PUBLIC_KEY' with your actual Public Key/User ID
+                    
+                    NOTE: Setting the recipient in EmailJS template settings is more secure than exposing it in code!
+                    
+                    Alternative: You can also use Formspree (https://formspree.io/) which doesn't require client-side configuration.
+                -->
+
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name <span class="required">*</span></label>
+              <input
+                type="text"
+                id="name"
+                name="from_name"
+                required
+                aria-required="true"
+                placeholder="Your name"
+              />
+              <span class="error-message" id="name-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email <span class="required">*</span></label>
+              <input
+                type="email"
+                id="email"
+                name="from_email"
+                required
+                aria-required="true"
+                placeholder="your.email@example.com"
+              />
+              <span class="error-message" id="email-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message"
+                >Message <span class="required">*</span></label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                required
+                aria-required="true"
+                placeholder="Your message (minimum 10 characters)"
+                minlength="10"
+              ></textarea>
+              <span class="error-message" id="message-error"></span>
+            </div>
+
+            <div
+              class="form-status"
+              id="form-status"
+              aria-live="polite"
+              aria-atomic="true"
+            ></div>
+
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <span class="btn-text">Send Message</span>
+              <span class="btn-loader" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 Dinesh Karthik S. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- EmailJS SDK -->
+    <!-- 
+        EMAILJS CDN:
+        This loads the EmailJS SDK which enables form submission to your email
+        without exposing your email address in the code.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>
