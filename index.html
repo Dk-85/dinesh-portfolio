@@ -1,4 +1,19 @@
 <!DOCTYPE html>
+<!-- 
+  UPDATED: Premium 3D animated Hero section added
+  - Interactive avatar with parallax effects
+  - Card layout with glass morphism
+  - 3D tilt on mouse move
+  - Floating animations
+  - Auto-rotate for touch devices
+  - Respects prefers-reduced-motion
+  
+  FINAL STEPS:
+  1. Add your avatar image to: assets/avatar.png
+  2. Or replace the image src with a hosted URL
+  3. Commit and push to your repository
+  4. Netlify will auto-deploy your changes
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,6 +32,20 @@
     />
     <meta name="author" content="Dinesh Karthik S" />
     <title>Dinesh Karthik S — Portfolio</title>
+
+    <!-- Favicon - Website Logo "DK" -->
+    <!-- 
+      FAVICON SETUP:
+      - The favicon below uses an SVG data URI with "DK" in neon blue
+      - To use a custom favicon file, replace the link below with:
+        <link rel="icon" type="image/png" href="assets/favicon.png" />
+      - Or create a favicon.ico file and place it in the root directory
+    -->
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300d4ff;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%2333e0ff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' fill='%230a0e14' rx='20'/%3E%3Ctext x='50' y='70' font-family='Arial, sans-serif' font-size='60' font-weight='bold' text-anchor='middle' fill='url(%23grad)'%3EDK%3C/text%3E%3C/svg%3E"
+    />
 
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -105,48 +134,51 @@
     <!-- Main Content -->
     <main>
       <!-- Hero Section -->
+      <!-- 
+        UPDATED: Premium 3D animated Hero section with interactive avatar
+        - Card layout with avatar on left, content on right (desktop)
+        - Stacked vertically on mobile
+        - 3D parallax effects on mouse move
+        - Floating animation for life-like movement
+        
+        IMAGE SETUP:
+        - Place your avatar image at: assets/avatar.png
+        - To use a hosted URL, replace the src in the img tag below
+        - The fallback SVG will show if the image is not found
+      -->
       <section id="home" class="hero">
         <div class="container">
-          <div class="hero-content">
-            <div class="hero-avatar">
-              <svg
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <circle cx="100" cy="100" r="100" fill="url(#gradient)" />
-                <circle cx="100" cy="85" r="35" fill="#1a1f2e" />
-                <path
-                  d="M 40 140 Q 100 110 160 140 L 160 180 Q 100 170 40 180 Z"
-                  fill="#1a1f2e"
+          <div class="hero-card" id="hero-card">
+            <!-- Avatar with 3D layers -->
+            <div class="hero-avatar-wrapper">
+              <div class="avatar-glow"></div>
+              <div class="avatar-rim-light"></div>
+              <div class="avatar-container">
+                <img
+                  src="assets/avatar.png"
+                  alt="Dinesh Karthik S avatar"
+                  class="avatar-image"
+                  loading="lazy"
+                  decoding="async"
+                  onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg width=\'400\' height=\'400\' viewBox=\'0 0 400 400\' fill=\'none\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'200\' cy=\'200\' r=\'200\' fill=\'url(%23gradient)\'/%3E%3Ccircle cx=\'200\' cy=\'170\' r=\'70\' fill=\'%231a1f2e\'/%3E%3Cpath d=\'M 80 280 Q 200 220 320 280 L 320 360 Q 200 340 80 360 Z\' fill=\'%231a1f2e\'/%3E%3Cdefs%3E%3ClinearGradient id=\'gradient\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' style=\'stop-color:%2300d4ff;stop-opacity:0.3\'/%3E%3Cstop offset=\'100%25\' style=\'stop-color:%230099cc;stop-opacity:0.1\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'"
                 />
-                <defs>
-                  <linearGradient
-                    id="gradient"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="100%"
-                  >
-                    <stop
-                      offset="0%"
-                      style="stop-color: #00d4ff; stop-opacity: 0.3"
-                    />
-                    <stop
-                      offset="100%"
-                      style="stop-color: #0099cc; stop-opacity: 0.1"
-                    />
-                  </linearGradient>
-                </defs>
-              </svg>
+              </div>
             </div>
-            <h1 class="hero-name">Dinesh Karthik S</h1>
-            <p class="hero-title">Java Full Stack Developer</p>
-            <div class="hero-buttons">
-              <a href="#contact" class="btn btn-primary">Get In Touch</a>
-              <a href="#projects" class="btn btn-secondary">View Projects</a>
+
+            <!-- Content -->
+            <div class="hero-content">
+              <h1 class="hero-name">Dinesh Karthik S</h1>
+              <p class="hero-title">Java Full Stack Developer</p>
+              <p class="hero-blurb">
+                I am an Information Science and Engineering graduate, currently
+                pursuing Java Full Stack Development at Tap Academy. I have a
+                strong foundation in programming, problem-solving, and web
+                technologies.
+              </p>
+              <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+              </div>
             </div>
           </div>
         </div>
@@ -280,7 +312,7 @@
               <span class="tech-badge">Pygame</span>
               <span class="tech-badge">Computer Vision</span>
             </div>
-            <a href="#" class="btn btn-primary project-btn">View Project</a>
+            <a href="https://github.com/Dk-85/Drowsiness-detection-using-opencv" class="btn btn-primary project-btn">View Project</a>
           </div>
         </div>
       </section>

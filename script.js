@@ -43,6 +43,7 @@ const EMAILJS_CONFIG = {
 // ===================================
 // DOM CONTENT LOADED
 // ===================================
+// UPDATED: Added 3D Hero avatar parallax effects
 document.addEventListener('DOMContentLoaded', () => {
     initEmailJS();
     initNavigation();
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initActiveNavLinks();
     initScrollToTop();
     initContactForm();
+    initHero3DEffects(); // New: 3D parallax effects for hero avatar
 });
 
 // ===================================
@@ -523,6 +525,155 @@ function initContactForm() {
                 errorElement.textContent = '';
             }
         });
+    });
+}
+
+// ===================================
+// HERO 3D EFFECTS - Parallax & Animations
+// ===================================
+/*
+ * UPDATED: Premium 3D interactive avatar effects
+ * - Mouse move parallax for 3D tilt effect
+ * - Layered depth parallax for avatar glow and rim light
+ * - Floating animation for life-like movement
+ * - Auto-rotate fallback for touch devices
+ * - Respects prefers-reduced-motion
+ */
+function initHero3DEffects() {
+    const heroCard = document.getElementById('hero-card');
+    const avatarContainer = document.querySelector('.avatar-container');
+    const avatarRimLight = document.querySelector('.avatar-rim-light');
+    const avatarGlow = document.querySelector('.avatar-glow');
+
+    if (!heroCard || !avatarContainer) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+        // Disable animations for users who prefer reduced motion
+        heroCard.style.animation = 'fadeInUp 1s ease';
+        return;
+    }
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    let rotateX = 0;
+    let rotateY = 0;
+    let autoRotateAngle = 0;
+    let isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    let rafId = null;
+
+    // Smooth interpolation for animations
+    function lerp(start, end, factor) {
+        return start + (end - start) * factor;
+    }
+
+    // Update card and layers based on mouse/touch position
+    function update3DEffects() {
+        // Smooth interpolation
+        rotateX = lerp(rotateX, targetX, 0.1);
+        rotateY = lerp(rotateY, targetY, 0.1);
+
+        // Calculate tilt angles (max 15 degrees)
+        const maxTilt = 15;
+        const tiltX = (rotateY / window.innerWidth) * maxTilt * 2 - maxTilt;
+        const tiltY = (rotateX / window.innerHeight) * maxTilt * 2 - maxTilt;
+
+        // Apply 3D transform to card
+        heroCard.style.transform = `
+            perspective(1000px) 
+            rotateX(${-tiltY}deg) 
+            rotateY(${tiltX}deg)
+            translateZ(0)
+        `;
+
+        // Parallax effect for avatar layers
+        const parallaxFactor = 0.3;
+        const parallaxX = tiltX * parallaxFactor;
+        const parallaxY = tiltY * parallaxFactor;
+
+        // Move avatar container (subtle)
+        if (avatarContainer) {
+            avatarContainer.style.transform = `
+                translate3d(${parallaxX * 2}px, ${parallaxY * 2}px, 0)
+                scale(1.02)
+            `;
+        }
+
+        // Move rim light (more pronounced)
+        if (avatarRimLight) {
+            const rimRotation = (tiltX + tiltY) * 2;
+            avatarRimLight.style.transform = `
+                translate3d(${parallaxX * 3}px, ${parallaxY * 3}px, 0)
+                rotate(${rimRotation}deg)
+            `;
+            avatarRimLight.style.opacity = 0.6 + Math.abs(tiltX + tiltY) * 0.3;
+        }
+
+        // Move glow (most pronounced)
+        if (avatarGlow) {
+            avatarGlow.style.transform = `
+                translate3d(${parallaxX * 4}px, ${parallaxY * 4}px, 0)
+                scale(${1 + Math.abs(tiltX + tiltY) * 0.1})
+            `;
+            avatarGlow.style.opacity = 0.6 + Math.abs(tiltX + tiltY) * 0.2;
+        }
+
+        // Continue animation
+        rafId = requestAnimationFrame(update3DEffects);
+    }
+
+    // Handle mouse move
+    function handleMouseMove(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        targetX = mouseX;
+        targetY = mouseY;
+    }
+
+    // Handle mouse leave - reset to center
+    function handleMouseLeave() {
+        targetX = window.innerWidth / 2;
+        targetY = window.innerHeight / 2;
+    }
+
+    // Auto-rotate for touch devices
+    function autoRotate() {
+        if (isTouchDevice && !mouseX && !mouseY) {
+            autoRotateAngle += 0.5;
+            const radius = 100;
+            targetX = window.innerWidth / 2 + Math.cos(autoRotateAngle * Math.PI / 180) * radius;
+            targetY = window.innerHeight / 2 + Math.sin(autoRotateAngle * Math.PI / 180) * radius;
+        }
+    }
+
+    // Initialize
+    if (isTouchDevice) {
+        // For touch devices, use auto-rotate
+        setInterval(autoRotate, 50);
+        targetX = window.innerWidth / 2;
+        targetY = window.innerHeight / 2;
+    } else {
+        // For desktop, use mouse tracking
+        heroCard.addEventListener('mousemove', handleMouseMove);
+        heroCard.addEventListener('mouseleave', handleMouseLeave);
+
+        // Initialize to center
+        targetX = window.innerWidth / 2;
+        targetY = window.innerHeight / 2;
+    }
+
+    // Start animation loop
+    update3DEffects();
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        if (rafId) {
+            cancelAnimationFrame(rafId);
+        }
     });
 }
 
